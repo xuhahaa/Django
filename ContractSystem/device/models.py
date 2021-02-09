@@ -38,6 +38,7 @@ class EmergencyFund(models.Model):
 
 # 授权采购
 class AuthBuy(models.Model):
+    # 数据库存储‘yes’,前端界面展示‘已完成’
     YES = 'yes'
     ING = 'ing'
     NO = 'no'
@@ -45,6 +46,8 @@ class AuthBuy(models.Model):
     assetType = models.CharField(max_length=50, verbose_name='设备类型', default='笔记本电脑')
     status = models.CharField(max_length=50, choices=StatusChoices, default=NO, verbose_name='设备类型')
 
+    def __str__(self):
+        return self.assetType
 
 
 # 总部集采
